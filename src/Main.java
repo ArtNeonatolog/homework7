@@ -58,10 +58,11 @@ public class Main {
         System.out.println("Часть 2. Задание 2");
         int cash = 15_000;
         int totalCash = 15_000;
-        for (int mes = 1; totalCash <= 12_000_000; mes ++) {  //каждый 6 месяц
-            if (mes % 6 == 0) {
+        int mes = 1;
+        for (; totalCash <= 12_000_000; mes ++) {  //каждый 6 месяц
                 cash = cash + cash / 100 * 7;
                 totalCash = totalCash + cash;
+                if (mes % 6 == 0) {
                 System.out.println(mes + " месяц - сумма накоплении равна " + totalCash);
             }
         }
