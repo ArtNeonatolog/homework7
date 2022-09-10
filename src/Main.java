@@ -57,23 +57,25 @@ public class Main {
     private static void part2Task2() {
         System.out.println("Часть 2. Задание 2");
         int cash = 15_000;
-        int cashPercentInMes = 15000 / 100 * 7;
         int totalCash = 15_000;
-        for (int mes = 6; totalCash <= 12_000_000; mes = mes + 6){  //каждый 6 месяц
-            totalCash = totalCash + cashPercentInMes * 6;
-            System.out.println(mes + " месяц - сумма накоплении равна " + totalCash);
+        for (int mes = 1; totalCash <= 12_000_000; mes ++) {  //каждый 6 месяц
+            if (mes % 6 == 0) {
+                cash = cash + cash / 100 * 7;
+                totalCash = totalCash + cash;
+                System.out.println(mes + " месяц - сумма накоплении равна " + totalCash);
+            }
         }
         System.out.println();
     }
 
     private static void part2Task1() {
-        System.out.println("Часть 2. Задание 1");
-        int cash = 15_000;
-        int cashPercentInMes = 15000 / 100 * 7;
-        int totalCash = 15_000;
-        for (int mes = 1; totalCash <= 12_000_000; mes ++){
-            totalCash = totalCash + cashPercentInMes;
-            System.out.println(mes + " месяц - сумма накоплении равна " + totalCash);
+            System.out.println("Часть 2. Задание 1");
+            int cash = 15_000;
+            int totalCash = 15_000;
+            for (int mes = 1; totalCash <= 12_000_000; mes++) {
+                cash = cash + cash / 100 * 7;
+                totalCash = totalCash + cash;
+                System.out.println(mes + " месяц - сумма накоплении равна " + totalCash);
         }
         System.out.println();
     }
@@ -81,8 +83,8 @@ public class Main {
     private static void part1Task3() {
         System.out.println("Задание 3");
         int paisY = 12_000_000;
-        int fertilityInYear = 12_000_000 / 1000 * 17;
-        int mortalityInYear = 12_000_000 / 1000 * 8;
+        int fertilityInYear = 12_000_000 / 1000 * 17;  //Рождаемость пересчет на 12 млн
+        int mortalityInYear = 12_000_000 / 1000 * 8;   //Смертность пересчет на 12 млн
          for (int year = 1; year <= 10; year ++){
              paisY = paisY + fertilityInYear - mortalityInYear;
              System.out.println("Год " + year + ", численность населения составляет " + paisY);
